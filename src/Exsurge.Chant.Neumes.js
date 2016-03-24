@@ -350,10 +350,16 @@ export class Distropha extends Neume {
     var note1 = this.notes[0];
     var note2 = this.notes[1];
 
-    note1.setGlyphShape(ctxt, GlyphCode.PunctumCuadratum);
+    if(note1.shape === _Exsurge3.NoteShape.Cavum)
+      note1.setGlyphShape(ctxt, GlyphCode.PunctumCavum);
+    else
+      note1.setGlyphShape(ctxt, GlyphCode.PunctumCuadratum);
     note1.performLayout(ctxt);
 
-    note2.setGlyphShape(ctxt, GlyphCode.PunctumCuadratum);
+    if(note2.shape === _Exsurge3.NoteShape.Cavum)
+      note2.setGlyphShape(ctxt, GlyphCode.PunctumCavum);
+    else
+      note2.setGlyphShape(ctxt, GlyphCode.PunctumCuadratum);
     note2.performLayout(ctxt);
     note2.bounds.x += note1.bounds.width + ctxt.intraNeumeSpacing;
 
